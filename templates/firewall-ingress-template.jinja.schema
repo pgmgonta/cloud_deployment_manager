@@ -1,0 +1,32 @@
+info:
+  title: Ingress firewall rule template
+  author: Tatsuya Sakamoto
+  description: firewall rule template
+  version: 0.1
+
+required:
+- network
+- allowed
+
+properties:
+  description:
+    type: string
+
+  network:
+    type: string
+
+  priority:
+    type: integer
+    default: 65534
+
+  sourceTags:
+    type: array
+
+  sourceRanges:
+    type: array
+
+  targetTags:
+    type: array
+   
+  allowed:
+    type: array

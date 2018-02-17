@@ -1,0 +1,28 @@
+{#
+
+
+#}
+
+{% set p = properties%}
+
+resources:
+- name: {{ env['name'] }}
+  type: compute.v1.firewall
+  properties:
+    direction: INGRESS
+    kind: compute#firewall
+    network: "projects/{{ env['project'] }}/global/networks/{{ p['network'] }}"
+    priority: {{ p['priority']}}
+    allowed: {{ p['allowed'] }}
+    {% if p.description is defined %}
+    description: {{ p['description'] }}
+    {% endif %}
+    {% if p.sourceTags is defined %}
+    sourceTags: {{ p['sourceTags'] }}
+    {% endif %}
+    {% if p.sourceRanges is defined %}
+    sourceRanges: {{ p['sourceRanges']}}
+    {% endif %}
+    {% if p.targetTags is defined %}
+    targetTags: {{ p['targetTags'] }}
+    {% endif %}

@@ -1,0 +1,15 @@
+imports:
+- path: templates/firewall-ingress-template.jinja
+
+resources:
+- name: sample-firewall
+  type: templates/firewall-ingress-template.jinja
+  properties:
+    network: default
+    sourceRanges:
+    - 0.0.0.0/0 
+    allowed:
+    - IPProtocol: tcp
+      ports:
+      - 80
+    
