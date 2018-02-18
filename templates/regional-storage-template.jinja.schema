@@ -1,0 +1,12 @@
+info:
+  title: Regional Cloud Storage Template
+  author: Tatsuya Sakamoto
+  description:
+  version: 0.1
+
+required:
+- region 
+
+properties:
+  region:
+    type: string

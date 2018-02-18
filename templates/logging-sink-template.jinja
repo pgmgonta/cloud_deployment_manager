@@ -6,11 +6,11 @@
 {% set p = properties%}
 
 resources:
-- name: {{ env['name'] }}
+- name: sample_sink
   type: logging.v2.sink
   properties:
-    name: {{ env['name'] }}
     destination: bigquery.googleapis.com/projects/{{ env['project'] }}/datasets/{{ p['dataset'] }}
     filter: {{ p['filter'] }}
+    uniqueWriterIdentity: true
 
   

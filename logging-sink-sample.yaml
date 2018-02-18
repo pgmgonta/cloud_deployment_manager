@@ -6,5 +6,4 @@ resources:
   type: templates/logging-sink-template.jinja
   properties:
     dataset: sink_test
-    filter: >
-      resource.type="gce_instance"
+    filter: resource.type="gce_instance"
