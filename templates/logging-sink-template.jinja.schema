@@ -1,0 +1,16 @@
+info:
+  title: 
+  author: Tatsuya Sakamoto
+  description:
+  version: 0.1
+
+required:
+- dataset 
+- filter
+
+properties:
+  dataset:
+    type: string
+
+  filter:
+    type: string

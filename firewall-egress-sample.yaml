@@ -1,0 +1,15 @@
+imports:
+- path: templates/firewall-egress-template.jinja
+
+resources:
+- name: sample-firewall
+  type: templates/firewall-egress-template.jinja
+  properties:
+    network: default
+    destinationRanges:
+    - 0.0.0.0/0 
+    denied:
+    - IPProtocol: tcp
+      ports:
+      - 22 
+    

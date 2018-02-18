@@ -1,0 +1,11 @@
+info:
+  title: 
+  author: Tatsuya Sakamoto
+  description:
+  version: 0.1
+
+required:
+
+properties:
+  prop:
+    type: string

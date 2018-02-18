@@ -1,0 +1,37 @@
+info:
+  title: VM Template
+  author: Tatsuya Sakamoto
+  description:
+  version: 0.1
+
+required:
+- zone
+- region
+- subnetwork
+
+properties:
+  zone:
+    type: string
+
+  projects:
+    type: string
+
+  description:
+    type: string
+
+  region:
+    type: string 
+  
+  subnetwork:
+    type: string
+
+  diskSizeGb:
+    type: integer
+    deafault: 10
+  
+  networkIP:
+    type: string  
+
+  machineType:
+    type: string
+    default: n1-standard-2

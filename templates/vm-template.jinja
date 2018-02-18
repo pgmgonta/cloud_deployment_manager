@@ -1,0 +1,37 @@
+{#
+
+
+#}
+
+{% set p = properties%}
+
+resources:
+- name: {{ env['name']}}
+  type: compute.v1.instance
+  properties:
+    #zone: "projects/{{ env['project'] }}/zones/{{ p['zone'] }}"
+    zone: {{ p['zone'] }}
+    machineType: projects/{{ env['project'] }}/zones/{{ p['zone'] }}/machineTypes/{{ p['machineType'] }}
+    disks:
+    - deviceName: {{ env['name'] }}
+      type: PERSISTENT
+      mode: READ_WRITE
+      autoDelete: true
+      boot: true
+      initializeParams:
+        sourceImage: projects/centos-cloud/global/images/centos-7-v20180129
+        diskType: projects/{{ env['project'] }}/zones/{{ p['zone'] }}/diskTypes/pd-standard
+        diskSizeGb: {{ p['diskSizeGb'] }}
+    networkInterfaces:
+    - subnetwork: projects/{{ env['project'] }}/regions/{{ p['region'] }}/subnetworks/{{ p['subnetwork'] }}
+      accessConfigs:
+      - name: External NAT
+        type: ONE_TO_ONE_NAT
+      {% if p.networkIP is defined %}
+      networkIP: {{ p['networkIP'] }}
+      {% endif %}
+
+    {% if p.description is defined %}
+    description: {{ p['description'] }}
+    {% endif %}
+  

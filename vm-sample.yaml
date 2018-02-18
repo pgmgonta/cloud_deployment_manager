@@ -1,0 +1,14 @@
+imports:
+- path: templates/vm-template.jinja
+
+resources:
+- name: sample-vm
+  type: templates/vm-template.jinja
+  properties:
+    machintType: n1-standard-2
+    zone: asia-northeast1-c
+    region: asia-northeast1
+    subnetwork: my-subnet01
+    diskSizeGb: 20
+    networkIP: 192.168.0.6
+

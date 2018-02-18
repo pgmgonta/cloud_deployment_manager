@@ -1,0 +1,33 @@
+{#
+
+
+#}
+
+{% set p = properties%}
+
+resources:
+- name: {{ env['name'] }}
+  type: compute.v1.firewall
+  properties:
+    direction: EGRESS
+    kind: compute#firewall
+    network: "projects/{{ env['project'] }}/global/networks/{{ p['network'] }}"
+    priority: {{ p['priority']}}
+    {% if p.denied is defined %}
+    denied: {{ p['denied'] }}
+    {% endif %}
+    {% if p.allowed is defined %}
+    allowed: {{ p['allowed'] }}
+    {% endif %}
+    {% if p.description is defined %}
+    description: {{ p['description'] }}
+    {% endif %}
+    {% if p.sourceTags is defined %}
+    sourceTags: {{ p['sourceTags'] }}
+    {% endif %}
+    {% if p.destinationRanges is defined %}
+    destinationRanges: {{ p['destinationRanges']}}
+    {% endif %}
+    {% if p.targetTags is defined %}
+    targetTags: {{ p['targetTags'] }}
+    {% endif %}

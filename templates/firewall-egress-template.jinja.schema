@@ -1,0 +1,35 @@
+info:
+  title: Egress firewall rule template
+  author: Tatsuya Sakamoto
+  description: firewall rule template
+  version: 0.1
+
+required:
+- network
+
+properties:
+  description:
+    type: string
+
+  network:
+    type: string
+
+  priority:
+    type: integer
+    default: 65534
+
+  denied:
+    type: array
+
+  allowed:
+    type: array
+
+  sourceTags:
+    type: array
+
+  destinationRanges:
+    type: array
+
+  targetTags:
+    type: array
+   

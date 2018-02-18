@@ -1,0 +1,10 @@
+imports:
+- path: templates/logging-sink-template.jinja
+
+resources:
+- name: sample_sink
+  type: templates/logging-sink-template.jinja
+  properties:
+    dataset: sink_test
+    filter: >
+      resource.type="gce_instance"

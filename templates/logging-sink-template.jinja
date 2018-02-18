@@ -1,0 +1,16 @@
+{#
+
+
+#}
+
+{% set p = properties%}
+
+resources:
+- name: {{ env['name'] }}
+  type: logging.v2.sink
+  properties:
+    name: {{ env['name'] }}
+    destination: bigquery.googleapis.com/projects/{{ env['project'] }}/datasets/{{ p['dataset'] }}
+    filter: {{ p['filter'] }}
+
+  
